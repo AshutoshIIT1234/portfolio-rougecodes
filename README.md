@@ -1,4 +1,58 @@
-# RougeCodes Portfolio Website
+# RougeCodes Website
+
+## Website Structure
+
+### Pages
+- **index.html** - Home page with hero, mission, projects, about section
+- **services.html** - Dedicated services page with all service offerings
+- **contact.html** - Contact page with form and contact information
+- **careers.html** - Careers page with job openings
+
+### Navigation Structure
+Based on the sitemap provided:
+
+**HOME**
+- About Us (dropdown)
+  - Who We Are
+  - Our Story
+  - Our Vision
+  - Core Values
+  - Leadership Team
+- Services (separate page)
+- Careers (separate page)
+- Contact (separate page)
+
+### Features
+- Smooth animations with GSAP
+- Video backgrounds
+- Responsive design
+- Modern UI/UX
+- Dropdown navigation menus
+- Form submissions
+- Mobile-friendly hamburger menu
+
+### Technologies Used
+- HTML5
+- CSS3 (Custom properties, Grid, Flexbox)
+- JavaScript (ES6+)
+- GSAP (GreenSock Animation Platform)
+- ScrollTrigger
+
+## File Structure
+```
+├── index.html          # Main homepage
+├── services.html       # Services page
+├── contact.html        # Contact page
+├── careers.html        # Careers page
+├── styles.css          # Main stylesheet
+├── script.js           # Homepage scripts
+├── services.js         # Services page scripts
+├── contact.js          # Contact page scripts
+├── careers.js          # Careers page scripts
+└── assests/            # Video and image assets
+```
+
+## RougeCodes Portfolio Website
 
 A modern, animated portfolio website built with GSAP animations and video backgrounds.
 

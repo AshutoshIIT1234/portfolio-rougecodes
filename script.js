@@ -500,6 +500,24 @@ document.addEventListener('click', (e) => {
     }
 });
 
+// Dropdown menu toggle for mobile
+document.querySelectorAll('.dropdown > a').forEach(dropdownLink => {
+    dropdownLink.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768) {
+            e.preventDefault();
+            const dropdown = dropdownLink.parentElement;
+            dropdown.classList.toggle('active');
+            
+            // Close other dropdowns
+            document.querySelectorAll('.dropdown').forEach(otherDropdown => {
+                if (otherDropdown !== dropdown) {
+                    otherDropdown.classList.remove('active');
+                }
+            });
+        }
+    });
+});
+
 // Form submission
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {

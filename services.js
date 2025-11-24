@@ -1,7 +1,7 @@
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
 
-// Navbar scroll effect - add background on scroll
+// Navbar scroll effect
 const navbar = document.querySelector('.navbar');
 
 window.addEventListener('scroll', () => {
@@ -45,7 +45,7 @@ gsap.from('.hero-subtitle', {
     ease: 'power3.out'
 });
 
-// Section titles animation
+// Section animations
 gsap.utils.toArray('.section-title').forEach(title => {
     gsap.from(title, {
         scrollTrigger: {
@@ -60,10 +60,10 @@ gsap.utils.toArray('.section-title').forEach(title => {
     });
 });
 
-// Careers intro
-gsap.from('.careers-intro', {
+// Services intro
+gsap.from('.services-intro', {
     scrollTrigger: {
-        trigger: '.careers-intro',
+        trigger: '.services-intro',
         start: 'top 80%',
         toggleActions: 'play none none reverse'
     },
@@ -73,57 +73,60 @@ gsap.from('.careers-intro', {
     ease: 'power3.out'
 });
 
-// Why Work section
-gsap.from('.why-work-content', {
-    scrollTrigger: {
-        trigger: '.why-work',
-        start: 'top 80%',
-        toggleActions: 'play none none reverse'
-    },
-    x: -100,
-    opacity: 0,
-    duration: 1.2,
-    ease: 'power3.out'
-});
-
-gsap.from('.why-work-video', {
-    scrollTrigger: {
-        trigger: '.why-work',
-        start: 'top 80%',
-        toggleActions: 'play none none reverse'
-    },
-    x: 100,
-    opacity: 0,
-    duration: 1.2,
-    ease: 'power3.out'
-});
-
-// Position cards
-gsap.utils.toArray('.position-card').forEach((card, i) => {
-    gsap.from(card, {
+// Service detail cards alternating
+gsap.utils.toArray('.service-detail').forEach((service, i) => {
+    gsap.from(service, {
         scrollTrigger: {
-            trigger: card,
+            trigger: service,
             start: 'top 85%',
             toggleActions: 'play none none reverse'
         },
-        y: 100,
+        x: i % 2 === 0 ? -100 : 100,
         opacity: 0,
-        duration: 0.9,
-        delay: i * 0.1,
+        duration: 1.2,
         ease: 'power3.out'
     });
 });
 
-// Apply section
-gsap.from('.apply', {
+// Service numbers animation
+gsap.utils.toArray('.service-number').forEach((num, i) => {
+    gsap.from(num, {
+        scrollTrigger: {
+            trigger: num,
+            start: 'top 85%',
+            toggleActions: 'play none none reverse'
+        },
+        scale: 0,
+        rotation: 360,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'back.out(2)'
+    });
+});
+
+// CTA section
+gsap.from('.services-cta h2', {
     scrollTrigger: {
-        trigger: '.apply',
+        trigger: '.services-cta',
         start: 'top 80%',
         toggleActions: 'play none none reverse'
     },
-    y: 80,
+    scale: 0.9,
     opacity: 0,
-    duration: 1,
+    duration: 1.2,
+    ease: 'back.out(1.5)'
+});
+
+gsap.from('.services-cta .btn', {
+    scrollTrigger: {
+        trigger: '.services-cta',
+        start: 'top 80%',
+        toggleActions: 'play none none reverse'
+    },
+    y: 50,
+    opacity: 0,
+    duration: 0.8,
+    delay: 0.4,
     ease: 'power3.out'
 });
 
@@ -136,7 +139,6 @@ hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
 });
 
-// Close menu when clicking outside
 document.addEventListener('click', (e) => {
     if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
         navLinks.classList.remove('active');
@@ -161,36 +163,6 @@ document.querySelectorAll('.dropdown > a').forEach(dropdownLink => {
         }
     });
 });
-
-// Application form submission
-const applicationForm = document.getElementById('applicationForm');
-if (applicationForm) {
-    applicationForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        const button = applicationForm.querySelector('button[type="submit"]');
-        const originalText = button.textContent;
-        
-        gsap.to(button, {
-            scale: 0.95,
-            duration: 0.1,
-            yoyo: true,
-            repeat: 1,
-            onComplete: () => {
-                button.textContent = 'Submitting...';
-                
-                setTimeout(() => {
-                    button.textContent = 'Application Sent! ✓';
-                    applicationForm.reset();
-                    
-                    setTimeout(() => {
-                        button.textContent = originalText;
-                    }, 3000);
-                }, 1500);
-            }
-        });
-    });
-}
 
 // Button hover effects
 document.querySelectorAll('.btn').forEach(btn => {
@@ -231,7 +203,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Add parallax effect to sections
+// Parallax effect
 gsap.utils.toArray('section').forEach(section => {
     const video = section.querySelector('.section-video, .hero-video');
     if (video) {
@@ -248,39 +220,4 @@ gsap.utils.toArray('section').forEach(section => {
     }
 });
 
-// Add ripple effect to buttons
-document.querySelectorAll('.btn').forEach(button => {
-    button.addEventListener('click', function(e) {
-        const ripple = document.createElement('span');
-        const rect = this.getBoundingClientRect();
-        const size = Math.max(rect.width, rect.height);
-        const x = e.clientX - rect.left - size / 2;
-        const y = e.clientY - rect.top - size / 2;
-        
-        ripple.style.width = ripple.style.height = size + 'px';
-        ripple.style.left = x + 'px';
-        ripple.style.top = y + 'px';
-        ripple.classList.add('ripple');
-        
-        this.appendChild(ripple);
-        
-        setTimeout(() => ripple.remove(), 600);
-    });
-});
-
-// Smooth reveal for images and videos
-gsap.utils.toArray('video, img').forEach(media => {
-    gsap.from(media, {
-        scrollTrigger: {
-            trigger: media,
-            start: 'top 90%',
-            toggleActions: 'play none none reverse'
-        },
-        scale: 0.95,
-        opacity: 0,
-        duration: 1,
-        ease: 'power3.out'
-    });
-});
-
-console.log('🚀 RougeCodes Careers - Loaded successfully!');
+console.log('🚀 RougeCodes Services - Loaded successfully!');

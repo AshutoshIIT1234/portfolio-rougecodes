@@ -22,12 +22,19 @@
             </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#mission">Mission</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li class="dropdown">
+                    <a href="#about">About Us</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#who-we-are">Who We Are</a></li>
+                        <li><a href="#our-story">Our Story</a></li>
+                        <li><a href="#our-vision">Our Vision</a></li>
+                        <li><a href="#core-values">Core Values</a></li>
+                        <li><a href="#leadership-team">Leadership Team</a></li>
+                    </ul>
+                </li>
+                <li><a href="services.html">Services</a></li>
                 <li><a href="careers.html">Careers</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
             <div class="hamburger">
                 <span></span>
@@ -60,8 +67,8 @@
                     <span>Branding Solutions</span>
                 </div>
                 <div class="cta-buttons">
-                    <a href="#contact" class="btn btn-primary">Start Your Project</a>
-                    <a href="#contact" class="btn btn-secondary">Book a Free Consultation</a>
+                    <a href="contact.html" class="btn btn-primary">Start Your Project</a>
+                    <a href="contact.html" class="btn btn-secondary">Book a Free Consultation</a>
                 </div>
             </div>
         </div>
@@ -151,6 +158,9 @@
                 <div class="service-item">Automation Tools for Businesses</div>
                 <div class="service-item">AI-Driven Solutions</div>
             </div>
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="services.html" class="btn btn-primary">View All Services</a>
+            </div>
         </div>
     </section>
 
@@ -203,11 +213,11 @@
         </video>
         <div class="section-overlay"></div>
         <div class="container">
-            <h2 class="section-title">Who We Are</h2>
+            <h2 id="who-we-are" class="section-title">Who We Are</h2>
             <p class="about-intro">RougeCodes is a full-stack digital product agency founded by Bikesh Kumar and powered by a passionate team of developers, designers, and technology leaders.</p>
             <p class="about-text">We specialize in building scalable web applications, intuitive UI/UX systems, and advanced IoT-based prototypes for businesses, startups, and institutions. We believe great products are built through clarity, creativity, and continuous innovation.</p>
             
-            <div class="story">
+            <div id="our-story" class="story">
                 <div class="story-content">
                     <h3>Our Story</h3>
                     <p>Started as a small student-led tech initiative at IIT Patna, RougeCodes has grown into a professional product engineering agency trusted by startups and founders across India. From developing web platforms to creating ESP32-based intelligent devices, our journey is driven by passion, consistency, and a strong understanding of real-world problems.</p>
@@ -219,7 +229,7 @@
                 </div>
             </div>
 
-            <div class="vision">
+            <div id="our-vision" class="vision">
                 <div class="vision-video">
                     <video autoplay muted loop playsinline>
                         <source src="assests/about_3.mp4" type="video/mp4">
@@ -231,7 +241,7 @@
                 </div>
             </div>
 
-            <div class="values">
+            <div id="core-values" class="values">
                 <h3>Our Core Values</h3>
                 <div class="values-grid">
                     <div class="value-card">
@@ -253,7 +263,7 @@
                 </div>
             </div>
 
-            <div class="team">
+            <div id="leadership-team" class="team">
                 <h3>Leadership Team</h3>
                 <div class="founder-spotlight">
                     <div class="founder-video">
@@ -295,189 +305,6 @@
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <video class="section-video" autoplay muted loop playsinline>
-            <source src="assests/coding.mp4" type="video/mp4">
-        </video>
-        <div class="section-overlay"></div>
-        <div class="container">
-            <h2 class="section-title">Our Services</h2>
-            
-            <div class="service-detail">
-                <h3>1. Web Development</h3>
-                <p>We build fast, responsive, and scalable websites and web applications using modern technologies like React, Node.js, Next.js, Django, Flask, Firebase, and more.</p>
-                <div class="service-includes">
-                    <strong>What's included:</strong>
-                    <ul>
-                        <li>Custom website development</li>
-                        <li>Full-stack web apps</li>
-                        <li>Admin dashboards</li>
-                        <li>ERP & CRM systems</li>
-                        <li>Landing pages</li>
-                        <li>LMS & portals</li>
-                        <li>API development and integrations</li>
-                    </ul>
-                </div>
-                <div class="service-benefits">
-                    <span>✔ Lightning-fast performance</span>
-                    <span>✔ Responsive across all devices</span>
-                    <span>✔ Secure and scalable architecture</span>
-                </div>
-            </div>
-
-            <div class="service-detail">
-                <h3>2. Mobile App Development</h3>
-                <p>Premium Android & iOS apps with intuitive UI and smooth performance.</p>
-                <div class="service-includes">
-                    <strong>Solutions:</strong>
-                    <ul>
-                        <li>On-demand apps</li>
-                        <li>E-commerce & service apps</li>
-                        <li>Student/college apps</li>
-                        <li>Tracking and data-collection apps</li>
-                        <li>Workflow automation apps</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="service-detail">
-                <h3>3. UI/UX Design</h3>
-                <p>High-quality design systems that are modern, minimal, and user-first.</p>
-                <div class="service-includes">
-                    <strong>Deliverables:</strong>
-                    <ul>
-                        <li>Wireframes</li>
-                        <li>Prototypes</li>
-                        <li>High-fidelity UI designs</li>
-                        <li>Design systems</li>
-                        <li>Usability testing</li>
-                    </ul>
-                    <p><strong>Tools:</strong> Figma, Adobe XD, Framer</p>
-                </div>
-            </div>
-
-            <div class="service-detail iot-service">
-                <div class="service-content">
-                    <h3>4. IoT & Embedded Systems</h3>
-                    <p>We build hardware-software integrated products using ESP32, ESP8266, Raspberry Pi, and various sensors.</p>
-                    <div class="service-includes">
-                        <strong>Offerings:</strong>
-                        <ul>
-                            <li>Custom IoT device development</li>
-                            <li>ESP32-based automation systems</li>
-                            <li>Prototyping & POC creation</li>
-                            <li>Embedded software development</li>
-                            <li>Smart sensors & monitoring systems</li>
-                            <li>Computer vision solutions (ESP32-CAM)</li>
-                        </ul>
-                        <p class="highlight">Your Advantage: You get both hardware + software from one agency — rare in the market.</p>
-                    </div>
-                </div>
-                <div class="service-video">
-                    <video autoplay muted loop playsinline>
-                        <source src="assests/iot.mp4" type="video/mp4">
-                    </video>
-                </div>
-            </div>
-
-            <div class="service-detail automation-service">
-                <div class="service-video">
-                    <video autoplay muted loop playsinline>
-                        <source src="assests/Automation & Ai Tools.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <div class="service-content">
-                    <h3>5. Automation & AI Tools</h3>
-                    <p>We help businesses reduce manual workload through automation.</p>
-                    <div class="service-includes">
-                        <strong>Solutions:</strong>
-                        <ul>
-                            <li>Workflow automation</li>
-                            <li>Data automation</li>
-                            <li>Dashboard generation</li>
-                            <li>Auto-reporting tools</li>
-                            <li>Custom AI chatbots</li>
-                            <li>Process optimization</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="service-detail">
-                <h3>6. Branding & Creative Design</h3>
-                <p>Strong brand identity for your product or startup.</p>
-                <div class="service-includes">
-                    <strong>Includes:</strong>
-                    <ul>
-                        <li>Logo design</li>
-                        <li>Brand guidelines</li>
-                        <li>Social media kit</li>
-                        <li>Pitch deck design</li>
-                        <li>Posters & assets</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="service-detail">
-                <h3>7. Startup MVP & Product Consulting</h3>
-                <p>We help founders validate ideas quickly and cost-effectively.</p>
-                <div class="service-includes">
-                    <strong>What we do:</strong>
-                    <ul>
-                        <li>Idea evaluation</li>
-                        <li>MVP planning</li>
-                        <li>Tech architecture</li>
-                        <li>UI/UX + prototype</li>
-                        <li>Full development</li>
-                        <li>Launch and scaling support</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Get in Touch</h2>
-            <p class="contact-intro">We'd love to hear about your idea, startup, or project. Our team replies within 24 hours.</p>
-            
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Contact Details</h3>
-                    <p>📍 IIT Patna, Bihar, India</p>
-                    <p>📧 contact@rougecodes.com</p>
-                    <p>📱 +91-XXXXXXXXXX</p>
-                    <p>🌐 rougecodes.com</p>
-                </div>
-
-                <div class="contact-form">
-                    <h3>Quick Contact Form</h3>
-                    <form id="contactForm">
-                        <input type="text" placeholder="Name" required>
-                        <input type="email" placeholder="Email" required>
-                        <input type="tel" placeholder="Phone Number">
-                        <select required>
-                            <option value="">Project Type</option>
-                            <option value="web">Web Development</option>
-                            <option value="app">Mobile App</option>
-                            <option value="iot">IoT</option>
-                            <option value="branding">Branding</option>
-                            <option value="other">Other</option>
-                        </select>
-                        <textarea placeholder="Your Requirements" rows="5" required></textarea>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-                </div>
-            </div>
-
-            <div class="work-with-us">
-                <p>We partner with startups, enterprises, and institutions to build digital products that scale.</p>
-            </div>
-        </div>
-    </section>
-
     <!-- Final CTA -->
     <section class="final-cta">
         <video class="section-video" autoplay muted loop playsinline>
@@ -486,7 +313,7 @@
         <div class="section-overlay"></div>
         <div class="container">
             <h2>Let's build something extraordinary — together.</h2>
-            <a href="#contact" class="btn btn-primary">Get Started</a>
+            <a href="contact.html" class="btn btn-primary">Get Started</a>
         </div>
     </section>
 
@@ -495,6 +322,13 @@
         <div class="container">
             <p>&copy; 2025 RougeCodes. All rights reserved.</p>
             <p>Building the future, one product at a time.</p>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#about">About</a>
+                <a href="services.html">Services</a>
+                <a href="contact.html">Contact</a>
+                <a href="careers.html">Careers</a>
+            </div>
         </div>
     </footer>
 
