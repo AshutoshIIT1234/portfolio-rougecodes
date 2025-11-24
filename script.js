@@ -49,13 +49,13 @@ if (heroLines.length > 0) {
     heroLines.forEach((line, index) => {
         const text = line.textContent;
         line.innerHTML = '';
-        
+
         text.split('').forEach((char, i) => {
             const span = document.createElement('span');
             span.textContent = char;
             span.style.display = 'inline-block';
             line.appendChild(span);
-            
+
             gsap.from(span, {
                 y: 100,
                 opacity: 0,
@@ -175,9 +175,9 @@ gsap.utils.toArray('.feature-card').forEach((card, i) => {
             start: 'top 85%',
             toggleActions: 'play none none reverse'
         },
-        y: 100,
+        y: 80,
         opacity: 0,
-        duration: 1,
+        duration: 0.8,
         delay: i * 0.1,
         ease: 'power3.out'
     });
@@ -193,7 +193,7 @@ gsap.utils.toArray('.service-item').forEach((item, i) => {
         },
         scale: 0.8,
         opacity: 0,
-        duration: 0.7,
+        duration: 0.6,
         delay: i * 0.05,
         ease: 'back.out(1.5)'
     });
@@ -223,7 +223,7 @@ gsap.utils.toArray('.testimonial-card').forEach((card, i) => {
             start: 'top 85%',
             toggleActions: 'play none none reverse'
         },
-        y: 100,
+        y: 80,
         opacity: 0,
         duration: 1,
         delay: i * 0.2,
@@ -436,6 +436,22 @@ gsap.utils.toArray('.position-card').forEach((card, i) => {
     });
 });
 
+// Showcase cards
+gsap.utils.toArray('.showcase-card').forEach((card, i) => {
+    gsap.from(card, {
+        scrollTrigger: {
+            trigger: card,
+            start: 'top 85%',
+            toggleActions: 'play none none reverse'
+        },
+        y: 80,
+        opacity: 0,
+        duration: 0.9,
+        delay: i * 0.15,
+        ease: 'power3.out'
+    });
+});
+
 // Final CTA
 gsap.from('.final-cta h2', {
     scrollTrigger: {
@@ -470,12 +486,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         if (target) {
             const offset = 80;
             const targetPosition = target.offsetTop - offset;
-            
+
             window.scrollTo({
                 top: targetPosition,
                 behavior: 'smooth'
             });
-            
+
             // Close mobile menu if open
             navLinks.classList.remove('active');
             hamburger.classList.remove('active');
@@ -507,7 +523,7 @@ document.querySelectorAll('.dropdown > a').forEach(dropdownLink => {
             e.preventDefault();
             const dropdown = dropdownLink.parentElement;
             dropdown.classList.toggle('active');
-            
+
             // Close other dropdowns
             document.querySelectorAll('.dropdown').forEach(otherDropdown => {
                 if (otherDropdown !== dropdown) {
@@ -523,10 +539,10 @@ const contactForm = document.getElementById('contactForm');
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        
+
         const button = contactForm.querySelector('button[type="submit"]');
         const originalText = button.textContent;
-        
+
         gsap.to(button, {
             scale: 0.95,
             duration: 0.1,
@@ -534,11 +550,11 @@ if (contactForm) {
             repeat: 1,
             onComplete: () => {
                 button.textContent = 'Sending...';
-                
+
                 setTimeout(() => {
                     button.textContent = 'Sent! ✓';
                     contactForm.reset();
-                    
+
                     setTimeout(() => {
                         button.textContent = originalText;
                     }, 2000);
@@ -557,7 +573,7 @@ document.querySelectorAll('.btn').forEach(btn => {
             ease: 'power2.out'
         });
     });
-    
+
     btn.addEventListener('mouseleave', () => {
         gsap.to(btn, {
             scale: 1,
@@ -584,12 +600,12 @@ document.addEventListener('mousemove', (e) => {
 
 function animateCursor() {
     const speed = 0.15;
-    
+
     cursorX += (mouseX - cursorX) * speed;
     cursorY += (mouseY - cursorY) * speed;
-    
+
     cursor.style.transform = `translate(${cursorX - 20}px, ${cursorY - 20}px)`;
-    
+
     requestAnimationFrame(animateCursor);
 }
 
@@ -604,7 +620,7 @@ document.querySelectorAll('a, button, .feature-card, .service-item').forEach(el 
             ease: 'power2.out'
         });
     });
-    
+
     el.addEventListener('mouseleave', () => {
         gsap.to(cursor, {
             scale: 1,
@@ -620,7 +636,7 @@ document.querySelectorAll('.btn').forEach(btn => {
         const rect = btn.getBoundingClientRect();
         const x = e.clientX - rect.left - rect.width / 2;
         const y = e.clientY - rect.top - rect.height / 2;
-        
+
         gsap.to(btn, {
             x: x * 0.3,
             y: y * 0.3,
@@ -628,7 +644,7 @@ document.querySelectorAll('.btn').forEach(btn => {
             ease: 'power2.out'
         });
     });
-    
+
     btn.addEventListener('mouseleave', () => {
         gsap.to(btn, {
             x: 0,
@@ -644,7 +660,7 @@ window.addEventListener('load', () => {
     document.body.style.opacity = '1';
 });
 
-// Add parallax effect to sections
+// Add parallax effect to sections with videos
 gsap.utils.toArray('section').forEach(section => {
     const video = section.querySelector('.section-video');
     if (video) {
@@ -653,25 +669,43 @@ gsap.utils.toArray('section').forEach(section => {
                 trigger: section,
                 start: 'top bottom',
                 end: 'bottom top',
+                scrub: 1.5
+            },
+            y: -150,
+            scale: 1.1,
+            ease: 'none'
+        });
+    }
+    
+    // Parallax for section titles
+    const title = section.querySelector('.section-title');
+    if (title) {
+        gsap.from(title, {
+            scrollTrigger: {
+                trigger: title,
+                start: 'top 90%',
+                end: 'top 30%',
                 scrub: 1
             },
-            y: -100,
+            y: 100,
+            opacity: 0.3,
             ease: 'none'
         });
     }
 });
 
-// Smooth reveal for images and videos
-gsap.utils.toArray('video, img').forEach(media => {
+// Smooth reveal for images and videos with clip-path
+gsap.utils.toArray('video:not(.hero-video):not(.section-video), img:not(.logo img)').forEach(media => {
     gsap.from(media, {
         scrollTrigger: {
             trigger: media,
             start: 'top 90%',
             toggleActions: 'play none none reverse'
         },
-        scale: 0.95,
+        scale: 0.9,
         opacity: 0,
-        duration: 1,
+        clipPath: 'inset(10% 10% 10% 10%)',
+        duration: 1.2,
         ease: 'power3.out'
     });
 });
@@ -700,22 +734,24 @@ window.addEventListener('scroll', () => {
 
 // Add ripple effect to buttons
 document.querySelectorAll('.btn').forEach(button => {
-    button.addEventListener('click', function(e) {
+    button.addEventListener('click', function (e) {
         const ripple = document.createElement('span');
         const rect = this.getBoundingClientRect();
         const size = Math.max(rect.width, rect.height);
         const x = e.clientX - rect.left - size / 2;
         const y = e.clientY - rect.top - size / 2;
-        
+
         ripple.style.width = ripple.style.height = size + 'px';
         ripple.style.left = x + 'px';
         ripple.style.top = y + 'px';
         ripple.classList.add('ripple');
-        
+
         this.appendChild(ripple);
-        
+
         setTimeout(() => ripple.remove(), 600);
     });
 });
 
-console.log('🚀 RougeCodes - Animations loaded successfully!');
+
+
+console.log('🚀 RougeCodes - Enhanced animations loaded successfully!');

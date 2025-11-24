@@ -205,7 +205,7 @@ body {
     padding-left: 30px;
 }
 
-.dropdown > a::before {
+.dropdown>a::before {
     content: '▼';
     font-size: 8px;
     margin-left: 6px;
@@ -213,8 +213,8 @@ body {
     display: inline-block;
 }
 
-.dropdown:hover > a::before,
-.dropdown.active > a::before {
+.dropdown:hover>a::before,
+.dropdown.active>a::before {
     transform: rotate(180deg);
 }
 
@@ -458,8 +458,17 @@ body {
 }
 
 @keyframes scrollAnim {
-    0%, 100% { transform: scaleY(0.3); opacity: 0.3; }
-    50% { transform: scaleY(1); opacity: 1; }
+
+    0%,
+    100% {
+        transform: scaleY(0.3);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: scaleY(1);
+        opacity: 1;
+    }
 }
 
 /* Section Styles */
@@ -583,17 +592,9 @@ section {
 
 /* Why Choose Us */
 .why-choose {
-    background: var(--bg-light);
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
     position: relative;
     overflow: hidden;
-}
-
-.why-choose .section-video {
-    opacity: 0.8;
-}
-
-.why-choose .section-overlay {
-    background: rgba(255, 255, 255, 0.88);
 }
 
 .why-choose .container {
@@ -660,17 +661,9 @@ section {
 
 /* What We Do */
 .what-we-do {
-    background: var(--light-gray);
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
     position: relative;
     overflow: hidden;
-}
-
-.what-we-do .section-video {
-    opacity: 0.8;
-}
-
-.what-we-do .section-overlay {
-    background: rgba(255, 255, 255, 0.85);
 }
 
 .what-we-do .container {
@@ -777,17 +770,9 @@ section {
 
 /* Testimonials */
 .testimonials {
-    background: var(--bg-light);
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
     position: relative;
     overflow: hidden;
-}
-
-.testimonials .section-video {
-    opacity: 0.8;
-}
-
-.testimonials .section-overlay {
-    background: rgba(255, 255, 255, 0.88);
 }
 
 .testimonials .container {
@@ -843,7 +828,7 @@ section {
 
 /* About */
 .about {
-    background: var(--light-gray);
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
     position: relative;
     overflow: hidden;
 }
@@ -868,7 +853,7 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.88);
+    background: rgba(0, 0, 0, 0.5);
     z-index: 1;
 }
 
@@ -895,7 +880,11 @@ section {
     font-size: 16px;
 }
 
-.story, .vision, .values, .team, .differentiators {
+.story,
+.vision,
+.values,
+.team,
+.differentiators {
     margin-bottom: 80px;
 }
 
@@ -919,7 +908,11 @@ section {
     display: block;
 }
 
-.story h3, .vision h3, .values h3, .team h3, .differentiators h3 {
+.story h3,
+.vision h3,
+.values h3,
+.team h3,
+.differentiators h3 {
     font-size: clamp(32px, 4vw, 48px);
     margin-bottom: 30px;
     font-weight: 700;
@@ -927,7 +920,8 @@ section {
     color: var(--text-dark);
 }
 
-.story p, .vision p {
+.story p,
+.vision p {
     font-size: 18px;
     line-height: 1.7;
     color: var(--text-dark);
@@ -1153,44 +1147,65 @@ section {
     transform: translateY(-4px);
 }
 
-.iot-service,
-.automation-service {
+.service-with-video:hover {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    transform: translateY(-8px);
+}
+
+.service-with-video {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 60px;
+    gap: 50px;
     align-items: center;
-    background: var(--bg-dark);
+    padding: 50px;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
     color: var(--text-light);
 }
 
-.iot-service h3,
-.automation-service h3 {
+.service-with-video .service-content {
+    order: 1;
+}
+
+.service-with-video .service-video {
+    order: 2;
+}
+
+.service-with-video:nth-child(even) .service-content {
+    order: 2;
+}
+
+.service-with-video:nth-child(even) .service-video {
+    order: 1;
+}
+
+.service-with-video h3 {
     color: var(--text-light);
 }
 
-.iot-service p,
-.iot-service li,
-.automation-service p,
-.automation-service li {
+.service-with-video p {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.service-with-video li {
     color: rgba(255, 255, 255, 0.8);
 }
 
-.iot-service .highlight {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+.service-with-video strong {
+    color: var(--text-light);
 }
 
-.automation-service .service-video {
-    order: -1;
-}
 
-.service-video {
-    border-radius: 15px;
+
+.service-with-video .service-video {
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    height: 100%;
+    min-height: 400px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.service-video video {
+.service-with-video .service-video video {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -1204,7 +1219,7 @@ section {
     letter-spacing: -0.5px;
 }
 
-.service-detail > p {
+.service-detail>p {
     font-size: 18px;
     color: var(--gray);
     line-height: 1.7;
@@ -1219,16 +1234,25 @@ section {
     font-size: 18px;
     display: block;
     margin-bottom: 15px;
+    color: var(--text-light);
 }
 
 .service-includes ul {
     margin: 15px 0 15px 25px;
-    color: var(--gray);
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .service-includes li {
     margin-bottom: 8px;
     line-height: 1.6;
+}
+
+.service-with-video .service-includes ul {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.service-with-video .service-includes li {
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .service-benefits {
@@ -1287,7 +1311,8 @@ section {
     margin-bottom: 60px;
 }
 
-.contact-info h3, .contact-form h3 {
+.contact-info h3,
+.contact-form h3 {
     font-size: 28px;
     margin-bottom: 30px;
     font-weight: 600;
@@ -1814,6 +1839,7 @@ section {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -1874,8 +1900,13 @@ video {
 }
 
 @keyframes loading {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
 }
 
 video[src] {
@@ -1893,7 +1924,12 @@ video[src] {
 }
 
 /* Better Typography Hierarchy */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-weight: 700;
     line-height: 1.2;
     color: var(--text-dark);
@@ -1922,7 +1958,7 @@ ul li {
 }
 
 /* Enhanced Section Spacing */
-section + section {
+section+section {
     margin-top: 0;
 }
 
@@ -1936,6 +1972,7 @@ section + section {
 
 /* Print Styles */
 @media print {
+
     .navbar,
     .hamburger,
     .scroll-indicator,
@@ -1943,11 +1980,11 @@ section + section {
     .custom-cursor {
         display: none !important;
     }
-    
+
     body {
         background: white;
     }
-    
+
     section {
         page-break-inside: avoid;
     }
@@ -1977,11 +2014,11 @@ section + section {
     .container {
         padding: 0 40px;
     }
-    
+
     section {
         padding: 80px 40px;
     }
-    
+
     .hero {
         padding: 120px 40px 80px;
     }
@@ -1991,15 +2028,15 @@ section + section {
     .container {
         padding: 0 25px;
     }
-    
+
     section {
         padding: 60px 25px;
     }
-    
+
     .hero {
         padding: 100px 25px 60px;
     }
-    
+
     .nav-links {
         position: fixed;
         top: 0;
@@ -2009,33 +2046,33 @@ section + section {
         background: var(--bg-light);
         flex-direction: column;
         padding: 100px 40px;
-        box-shadow: -5px 0 30px rgba(0,0,0,0.1);
+        box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
         transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         gap: 30px;
         align-items: flex-start;
     }
-    
+
     .nav-links.active {
         right: 0;
     }
-    
+
     .hamburger {
         display: flex;
         z-index: 1001;
     }
-    
+
     .hamburger.active span:nth-child(1) {
         transform: rotate(45deg) translate(8px, 8px);
     }
-    
+
     .hamburger.active span:nth-child(2) {
         opacity: 0;
     }
-    
+
     .hamburger.active span:nth-child(3) {
         transform: rotate(-45deg) translate(8px, -8px);
     }
-    
+
     .features-grid,
     .services-list,
     .testimonials-grid,
@@ -2043,16 +2080,16 @@ section + section {
     .team-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .service-detail {
         padding: 40px 30px;
     }
-    
+
     .contact-content {
         grid-template-columns: 1fr;
         gap: 50px;
     }
-    
+
     .iot-service,
     .automation-service,
     .story,
@@ -2062,7 +2099,7 @@ section + section {
         grid-template-columns: 1fr;
         gap: 30px;
     }
-    
+
     .story-video,
     .vision-video,
     .founder-video,
@@ -2070,19 +2107,19 @@ section + section {
     .why-work-video {
         order: -1;
     }
-    
+
     .automation-service .service-content {
         order: 0;
     }
-    
+
     .vision-content {
         order: 0;
     }
-    
+
     .logo img {
         height: 30px;
     }
-    
+
     /* Mobile dropdown styles */
     .dropdown-menu {
         position: static;
@@ -2099,16 +2136,16 @@ section + section {
         transform: none;
         transition: max-height 0.3s ease;
     }
-    
+
     .dropdown.active .dropdown-menu {
         max-height: 500px;
     }
-    
+
     .dropdown-menu a {
         padding: 10px 20px;
         font-size: 14px;
     }
-    
+
     .dropdown-menu a:hover {
         padding-left: 25px;
     }
@@ -2266,7 +2303,7 @@ section + section {
     text-align: center;
 }
 
-.form-wrapper > p {
+.form-wrapper>p {
     text-align: center;
     color: rgba(255, 255, 255, 0.7);
     margin-bottom: 40px;
@@ -2462,7 +2499,8 @@ section + section {
     font-size: 24px;
     font-weight: 700;
     margin-bottom: 20px;
-    box-shadow: 0 4px 15px rgba(255, 71, 87, 0.3);
+    box-shadow: 0 8px 25px rgba(255, 71, 87, 0.5);
+    border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .services-cta {
@@ -2499,13 +2537,82 @@ section + section {
     margin-bottom: 40px;
 }
 
+/* Digital Innovation Showcase */
+.showcase {
+    background: var(--bg-dark);
+    color: var(--text-light);
+    position: relative;
+    padding: 120px 60px;
+}
+
+.showcase .section-title {
+    color: var(--text-light);
+    margin-bottom: 60px;
+}
+
+.showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.showcase-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.showcase-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    border-color: var(--accent);
+}
+
+.showcase-video-wrapper {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.showcase-video-wrapper video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.showcase-card:hover .showcase-video-wrapper video {
+    transform: scale(1.1);
+}
+
+.showcase-content {
+    padding: 25px;
+}
+
+.showcase-content h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: var(--text-light);
+}
+
+.showcase-content p {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+}
+
+
 /* Responsive for new pages */
 @media (max-width: 768px) {
+
     .contact-hero,
     .services-hero {
         padding: 100px 25px 60px;
     }
-    
+
     .contact-info-section,
     .contact-form-section,
     .work-with-section,
@@ -2514,19 +2621,32 @@ section + section {
     .services-cta {
         padding: 60px 25px;
     }
-    
+
     .form-wrapper {
         padding: 40px 25px;
     }
-    
+
     .form-row {
         grid-template-columns: 1fr;
         gap: 20px;
     }
-    
+
     .contact-grid,
     .work-features {
         grid-template-columns: 1fr;
+    }
+    
+    .service-with-video {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .service-with-video .service-video {
+        order: -1 !important;
+    }
+    
+    .service-with-video .service-content {
+        order: 0 !important;
     }
 }
 
@@ -2546,6 +2666,7 @@ video {
 
 /* Ensure videos fill container properly */
 @supports (object-fit: cover) {
+
     .hero-video,
     .section-video {
         object-position: center center;
