@@ -127,6 +127,9 @@ gsap.to('.hero-content', {
 
 // Section titles animation - simplified
 gsap.utils.toArray('.section-title').forEach(title => {
+    // Set initial state to visible
+    gsap.set(title, { opacity: 1, y: 0 });
+    
     gsap.from(title, {
         scrollTrigger: {
             trigger: title,
@@ -677,21 +680,21 @@ gsap.utils.toArray('section').forEach(section => {
         });
     }
     
-    // Parallax for section titles
-    const title = section.querySelector('.section-title');
-    if (title) {
-        gsap.from(title, {
-            scrollTrigger: {
-                trigger: title,
-                start: 'top 90%',
-                end: 'top 30%',
-                scrub: 1
-            },
-            y: 100,
-            opacity: 0.3,
-            ease: 'none'
-        });
-    }
+    // Parallax for section titles - disabled to ensure visibility
+    // const title = section.querySelector('.section-title');
+    // if (title) {
+    //     gsap.from(title, {
+    //         scrollTrigger: {
+    //             trigger: title,
+    //             start: 'top 90%',
+    //             end: 'top 30%',
+    //             scrub: 1
+    //         },
+    //         y: 100,
+    //         opacity: 0.3,
+    //         ease: 'none'
+    //     });
+    // }
 });
 
 // Smooth reveal for images and videos with clip-path
